@@ -4,10 +4,6 @@ Share your Immich photos and albums in a safe way without exposing your Immich i
 
 Setup takes less than a minute, and you never need to touch it again as all of your sharing stays managed within Immich.
 
-<p align="center" width="100%">
-<img src="icon.png" width="200" height="200">
-</p>
-
 ## About 
 
 [Immich](https://github.com/immich-app/immich) is a wonderful bit of software, but since it holds all your private photos it's 
