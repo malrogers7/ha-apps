@@ -1,0 +1,5 @@
+build_from:
+  aarch64: "alangrainger/immich-public-proxy:latest"
+  amd64: "alangrainger/immich-public-proxy:latest"
+  i386: "alangrainger/immich-public-proxy:latest"
+args: {}
