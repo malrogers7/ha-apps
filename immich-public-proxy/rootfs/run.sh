@@ -1,22 +1,37 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 echo "Starting Immich Public Proxy Add-on..."
 
-# 1. Read config options from Home Assistant using jq
-# We extract the value from options.json and assign it to the variable the app expects
-IMMICH_URL=$(jq --raw-output '.immich_url' /data/options.json)
-PUBLIC_URL=$(jq --raw-output '.public_url' /data/options.json)
+# 1. Core URLs
+export IMMICH_URL=$(jq --raw-output '.immich_url' /data/options.json)
+export PUBLIC_BASE_URL=$(jq --raw-output '.public_url' /data/options.json)
+
+# 2. Advanced Options
+export CONFIG=$(jq -n \
+  --arg sg "$(jq --raw-output '.single_image_gallery' /data/options.json)" \
+  --arg do "$(jq --raw-output '.download_original' /data/options.json)" \
+  --arg df "$(jq --raw-output '.downloaded_filename' /data/options.json)" \
+  --arg gt "$(jq --raw-output '.show_gallery_title' /data/options.json)" \
+  --arg da "$(jq --raw-output '.allow_download_all' /data/options.json)" \
+  --arg hp "$(jq --raw-output '.show_home_page' /data/options.json)" \
+  --arg desc "$(jq --raw-output '.show_image_description' /data/options.json)" \
+  '{
+    ipp: {
+      singleImageGallery: ($sg == "true"),
+      downloadOriginalPhoto: ($do == "true"),
+      downloadedFilename: ($df | tonumber),
+      showGalleryTitle: ($gt == "true"),
+      allowDownloadAll: ($da | tonumber),
+      showHomePage: ($hp == "true"),
+      showMetadata: {
+        title: ($gt == "true"),
+        description: ($desc == "true")
+      }
+    }
+  }')
 
 echo "Configuring environment..."
-echo "Target Immich Instance: $IMMICH_URL"
+echo " - Gallery Title enabled: $(jq --raw-output '.show_gallery_title' /data/options.json)"
 
-# 2. Export them as Environment Variables
-# The specific variable names (IMMICH_URL, PUBLIC_BASE_URL) depend on the app's documentation
-export IMMICH_URL="$IMMICH_URL"
-export PUBLIC_BASE_URL="$PUBLIC_URL"
-
-# 3. Start the application
-# We use 'npm start' because that is the standard start command for this Node app.
-# If the app used a different command (like python app.py), you would use that here.
 exec npm start
