@@ -12,7 +12,7 @@ RUN apk add --no-cache \
 # COPY rootfs/ /
 
 # Ensure the script is executable
-RUN chmod a+x /run.sh
+# RUN chmod a+x /run.sh
 
 # Metadata arguments
 ARG BUILD_ARCH=amd64
