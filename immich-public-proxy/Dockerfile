@@ -1,10 +1,6 @@
 ARG BUILD_FROM=alangrainger/immich-public-proxy:latest
 FROM ${BUILD_FROM}
 
-# ------------------------------------------------------------------
-# CRITICAL FIX: Switch to root to install packages
-# The base image runs as a limited user ('node'), so 'apk' failed.
-# ------------------------------------------------------------------
 USER root
 
 # Install dependencies using Alpine's package manager
@@ -13,9 +9,9 @@ RUN apk add --no-cache \
     curl
 
 # Copy the entire rootfs directory
-COPY rootfs/ /
+# COPY rootfs/ /
 
-# Ensure the script is executable (just in case permissions were lost)
+# Ensure the script is executable
 RUN chmod a+x /run.sh
 
 # Metadata arguments
@@ -47,5 +43,5 @@ LABEL \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
 
-# Change the ENTRYPOINT to list files instead of running the script
-ENTRYPOINT [ "ls", "-R", "/" ]
+# Start the script
+ENTRYPOINT [ "/run.sh" ]
