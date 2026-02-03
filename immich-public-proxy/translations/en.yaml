@@ -8,3 +8,6 @@ configuration:
   show_gallery_title:
     name: "Display Album Title"
     description: "Shows the name of the shared album at the top of the gallery page."
+  single_image_gallery:
+    name: "Single Image Gallery"
+    description: "By default a link to a single image will directly open the image file. Set to true if you want to show a gallery page instead for a single item."
