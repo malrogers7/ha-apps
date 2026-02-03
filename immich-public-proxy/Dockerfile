@@ -8,11 +8,10 @@ RUN apk add --no-cache \
     jq \
     curl
 
-# Copy the entire rootfs directory
-# COPY rootfs/ /
+COPY run.sh /run.sh
 
 # Ensure the script is executable
-# RUN chmod a+x /run.sh
+RUN chmod a+x /run.sh
 
 # Metadata arguments
 ARG BUILD_ARCH=amd64
