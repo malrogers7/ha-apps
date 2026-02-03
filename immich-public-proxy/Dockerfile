@@ -47,4 +47,5 @@ LABEL \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
 
-ENTRYPOINT [ "/run.sh" ]
+# Change the ENTRYPOINT to list files instead of running the script
+ENTRYPOINT [ "ls", "-R", "/" ]
