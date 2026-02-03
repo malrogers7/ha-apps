@@ -23,15 +23,6 @@ configuration:
   show_image_description:
     name: "Show Image Description"
     description: "Display the caption/description text added in Immich."
-  show_image_location:
-    name: "Show Location"
-    description: "Display the city/country where the photo was taken (if available)."
-  show_image_camera:
-    name: "Show Camera Info"
-    description: "Display the device used (e.g., iPhone 15, Canon EOS)."
-  show_image_exif:
-    name: "Show Detailed EXIF"
-    description: "Show technical details like ISO, F-stop, and Shutter Speed."
   downloaded_filename:
     name: "Filename Format"
     description: "0 = Original name, 1 = Immich ID, 2 = Short ID."
