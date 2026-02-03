@@ -1,14 +1,39 @@
-# 1. Use the upstream image as the base
-ARG BUILD_FROM
-FROM $BUILD_FROM
+ARG BUILD_FROM=alangrainger/immich-public-proxy:latest
 
-# 2. Install 'jq'
-# We need this tool to parse the 'options.json' file that Home Assistant creates
-RUN apt-get update && apt-get install -y jq && rm -rf /var/lib/apt/lists/*
+FROM ${BUILD_FROM}
 
-# 3. Copy our startup script
-COPY run.sh /run.sh
-RUN chmod a+x /run.sh
+ARG BUILD_ARCH=amd64
 
-# 4. Set the entrypoint to our script
-CMD [ "/run.sh" ]
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+    jq \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY rootfs/ /
+
+ARG BUILD_VERSION \
+    BUILD_DATE \
+    BUILD_DESCRIPTION \
+    BUILD_NAME \
+    BUILD_REF \
+    BUILD_REPOSITORY
+
+LABEL \
+    io.hass.name="${BUILD_NAME}" \
+    io.hass.description="${BUILD_DESCRIPTION}" \
+    io.hass.arch="${BUILD_ARCH}" \
+    io.hass.type="addon" \
+    io.hass.version="${BUILD_VERSION}" \
+    maintainer="Malcolm Rogers <malcolmrgs@gmail.com>" \
+    org.opencontainers.image.title="${BUILD_NAME}" \
+    org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
+    org.opencontainers.image.vendor="Malcolm Rogers Hassio Add-ons" \
+    org.opencontainers.image.authors="Malcolm Rogers <malcolmrgs@gmail.com>" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.url="https://github.com/malrogers7" \
+    org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
+    org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \
+    org.opencontainers.image.created=${BUILD_DATE} \
+    org.opencontainers.image.revision=${BUILD_REF} \
+    org.opencontainers.image.version=${BUILD_VERSION}
