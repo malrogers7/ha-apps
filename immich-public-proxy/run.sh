@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "Starting Immich Public Proxy Add-on..."
+echo "Start Immich Public Proxy Add-on..."
 
 # 1. Core URLs
 export IMMICH_URL=$(jq --raw-output '.immich_url' /data/options.json)
