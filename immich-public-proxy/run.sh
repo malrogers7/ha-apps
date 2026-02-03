@@ -16,9 +16,6 @@ export CONFIG=$(jq -n \
   --arg da "$(jq --raw-output '.allow_download_all' /data/options.json)" \
   --arg hp "$(jq --raw-output '.show_home_page' /data/options.json)" \
   --arg desc "$(jq --raw-output '.show_image_description' /data/options.json)" \
-  --arg loc "$(jq --raw-output '.show_image_location' /data/options.json)" \
-  --arg cam "$(jq --raw-output '.show_image_camera' /data/options.json)" \
-  --arg exif "$(jq --raw-output '.show_image_exif' /data/options.json)" \
   '{
     ipp: {
       singleImageGallery: ($sg == "true"),
