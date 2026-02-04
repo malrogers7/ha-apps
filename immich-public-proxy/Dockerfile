@@ -43,9 +43,5 @@ LABEL \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
 
-# Add a health check to monitor the proxy
-HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
-  CMD curl -f http://localhost:3000/share/healthcheck || exit 1
-
 # Start the script
 ENTRYPOINT [ "/run.sh" ]
