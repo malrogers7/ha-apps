@@ -30,6 +30,4 @@ schema:
   show_home_page: bool
   show_image_description: bool
 ports:
-  3000/tcp: 3000 # Maps container port 3000 to host port 3000
-map:
-  - config:rw # Optional: if the app needs to save config files
+  3000/tcp: 3000
