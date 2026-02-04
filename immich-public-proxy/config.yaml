@@ -8,6 +8,7 @@ arch:
   - aarch64
 startup: application
 boot: auto
+watchdog: "http://[HOST]:[PORT:3000]/share/healthcheck"
 options:
   immich_url: "http://internal-ip:2283"
   public_url: "https://photos.yourdomain.com"
