@@ -1,2 +1,2 @@
-# ha-addons
-Home Assistant Addons
+# Home Assistant Apps
+Home Assistant Apps (formerly Addons)
