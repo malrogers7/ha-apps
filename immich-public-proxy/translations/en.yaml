@@ -1,3 +1,5 @@
+network:
+  3000/tcp: "Proxy Web Interface"
 configuration:
   immich_url:
     name: "Immich Server Address"
@@ -17,12 +19,21 @@ configuration:
   download_original:
     name: "Download Original Photo"
     description: "Set to false if you only want people to be able to download the 'preview' quality photo, rather than your original photo."
-  allow_download_all:
-    name: "Allow Download All"
-    description: "Allow visitors to download all files as a zip. 0 disable downloads. 1 follow Immich setting per share. 2 always allowed."
   show_image_description:
     name: "Show Image Description"
     description: "Display the caption/description text added in Immich."
   downloaded_filename:
-    name: "Filename Format"
-    description: "0 = Original name, 1 = Immich ID, 2 = Short ID."
+    name: "Downloaded Filename Format"
+    description: "Choose how files are named when downloaded from the proxy."
+    values:
+      0: "Original Filename (fallback to Asset ID)"
+      1: "Immich Asset ID"
+      2: "Shortened Asset ID (img_xxxxxxxx)"
+  allow_download_all:
+    name: "Allow Download All (Zip)"
+    description: "Control if visitors can download entire albums as a zip file."
+    values:
+      0: "Disabled"
+      1: "Follow Immich Share settings"
+      2: "Always Allowed"
+      
