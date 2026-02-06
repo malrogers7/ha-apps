@@ -1,0 +1,30 @@
+#include <tunables/global>
+
+profile immich_public_proxy flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/nodejs>
+
+  # Allow network access (essential for a proxy)
+  network inet stream,
+  network inet6 stream,
+
+  # Allow reading the Home Assistant options and config
+  /data/options.json r,
+  /data/ r,
+  /data/** rwk,
+
+  # Allow S6-Overlay to manage the process
+  /bin/** ix,
+  /usr/bin/** ix,
+  /etc/s6/** rix,
+  /run/s6/** rix,
+  
+  # Capabilities needed for basic operation
+  capability setgid,
+  capability setuid,
+  capability chown,
+
+  # Allow the app to send signals to itself
+  signal (send) set=(kill,term,int,hup,cont),
+}
