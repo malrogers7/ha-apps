@@ -1,8 +1,8 @@
 #include <tunables/global>
+
 profile immich-public-proxy flags=(attach_disconnected,mediate_deleted) {
   #include <abstractions/base>
   #include <abstractions/nameservice>
-  #include <abstractions/nodejs>
 
   network inet stream,
   network inet6 stream,
