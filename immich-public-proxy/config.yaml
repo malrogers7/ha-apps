@@ -1,5 +1,5 @@
 name: "Immich Public Proxy"
-version: "1.15.1-ha6"
+version: "1.15.1-ha1"
 slug: "immich_public_proxy"
 description: "A secure public proxy for Immich"
 url: "https://github.com/malrogers7/ha-apps/tree/main/immich-public-proxy"
@@ -9,6 +9,7 @@ arch:
 startup: application
 boot: auto
 watchdog: "http://[HOST]:[PORT:3000]/share/healthcheck"
+apparmor: true
 options:
   immich_url: "http://internal-ip:2283"
   public_url: "https://photos.yourdomain.com"
