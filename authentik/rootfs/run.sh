@@ -3,6 +3,12 @@ set -e
 
 echo "Starting RhinoHouse Authentik All-in-One..."
 
+# Tell Authentik to trust the Home Assistant Supervisor proxy
+export AUTHENTIK_TRUSTED_PROXIES="172.30.32.2"
+
+# Ensure Authentik listens on the port Ingress is looking for
+export AUTHENTIK_LISTEN__HTTP="0.0.0.0:9000"
+
 # --- CONFIGURATION ---
 DATA_DIR="/data"
 PG_DATA="$DATA_DIR/postgresql"
