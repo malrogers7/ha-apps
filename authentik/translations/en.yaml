@@ -1,0 +1,22 @@
+configuration:
+  secret_key:
+    name: "Authentik Secret Key"
+    description: >-
+      This key is used for internal signing and encryption. It is required for 
+      Authentik to start. 
+      
+      IMPORTANT: This should be a long, random string. If you change this key 
+      after the initial setup, existing user sessions and some encrypted data 
+      may become invalid.
+  
+  port_9000:
+    name: "Web Interface Port (HTTP)"
+    description: >-
+      The primary port for the Authentik UI and API. 
+      Access this via http://your-ip:9000. 
+      This is the recommended port for local access and reverse proxies.
+      
+  port_9443:
+    name: "Secure Web Port (HTTPS)"
+    description: >-
+      The internal HTTPS port using Authentik's self-signed certificates. 
