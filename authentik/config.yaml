@@ -1,8 +1,8 @@
 name: "Authentik"
-version: "2024.12.0-g"
+version: "2024.12.0-h"
 slug: "authentik"
 description: "Full Authentik stack (App + Redis + Postgres) in one container."
-webui: "[PROTO:ssl]://[HOST]:[PORT:8080]"
+webui: "[PROTO:ssl]://[HOST]:[PORT:9443]"
 arch:
   - aarch64
   - amd64
