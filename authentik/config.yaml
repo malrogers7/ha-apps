@@ -19,6 +19,7 @@ schema:
 # Enable the Ingress feature
 ingress: true
 ingress_port: 9000
+network_mode: bridge
 
 # Add Authentik to the sidebar
 panel_icon: mdi:shield-account
@@ -26,5 +27,6 @@ panel_title: "Authentik"
 panel_admin: true
 
 environment:
-  AUTHENTIK_TRUSTED_PROXIES: "172.30.32.2"
+  AUTHENTIK_TRUSTED_PROXIES: "127.0.0.1,172.30.32.0/23e
   AUTHENTIK_LISTEN__HTTP: "0.0.0.0:9000"
+  AUTHENTIK_ERROR_REPORTING__ENABLED: "true"
