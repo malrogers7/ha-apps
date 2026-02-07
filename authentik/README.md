@@ -9,3 +9,5 @@ A self-hosted, open source identity provider means prioritizing security and tak
 ## Disclaimer
 
 This has been created for personal use only.  This is merely a wrapper to create a Home Assistant App and is not actively maintained.
+
+Go to http://<YOUR_IP>:9000/if/flow/initial-setup/ to set up the admin user.
