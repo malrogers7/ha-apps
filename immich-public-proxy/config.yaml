@@ -16,6 +16,7 @@ options:
   download_original: true
   downloaded_filename: 0
   show_gallery_title: true
+  show_gallery_description: true
   allow_download_all: 1
   show_home_page: true
   show_image_description: true
@@ -26,6 +27,7 @@ schema:
   download_original: bool 
   downloaded_filename: "list(original_name|immich_id|short_id)"
   show_gallery_title: bool
+  show_gallery_description: bool
   allow_download_all: "list(disabled|per_share|always)"
   show_home_page: bool
   show_image_description: bool
