@@ -31,6 +31,7 @@ export CONFIG=$(jq -n \
   --argjson do "$(jq '.download_original' /data/options.json)" \
   --argjson df "$DF_VAL" \
   --argjson gt "$(jq '.show_gallery_title' /data/options.json)" \
+  --argjson gd "$(jq '.show_gallery_description' /data/options.json)" \
   --argjson da "$AD_VAL" \
   --argjson hp "$(jq '.show_home_page' /data/options.json)" \
   --argjson desc "$(jq '.show_image_description' /data/options.json)" \
@@ -40,6 +41,7 @@ export CONFIG=$(jq -n \
       downloadOriginalPhoto: $do,
       downloadedFilename: $df,
       showGalleryTitle: $gt,
+      showGalleryDescription: $gd,
       allowDownloadAll: $da,
       showHomePage: $hp,
       showMetadata: {
