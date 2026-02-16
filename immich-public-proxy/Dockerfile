@@ -1,6 +1,6 @@
 # 1. Define the build arguments provided by Home Assistant
-ARG BUILD_FROM=ghcr.io/alangrainger/immich-public-proxy:1.15.1
-ARG BUILD_ARCH=amd64
+ARG BUILD_FROM
+ARG BUILD_ARCH
 ARG BUILD_DATE
 ARG BUILD_DESCRIPTION
 ARG BUILD_NAME
