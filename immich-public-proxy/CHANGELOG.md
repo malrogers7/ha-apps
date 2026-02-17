@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.15.3 (Upstream)
+
+- #187 Fix issue with album description not wrapping correctly
+- #188 Fix pinned node:lts-alpine version
+- #186 Fix incorrect docker package version
+
+Please clear proxy cache if necessary to ensure you're serving the latest /share/static/style.css
+
 ## 1.15.2 (Upstream)
 - #148 Fix download of preview quality video when downloadOriginalPhoto is set to false
 - #151 #97 Add option to show Immich album description (if present) in shared album. Thanks @otterstedt
