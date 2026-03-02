@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.15.4 (Upstream)
+
+- #196 Fix issue where original image was incorrectly downloaded inside "Download all' zip file
+- Add placeholder thumbnail in case of missing asset image
+- Show spinner only on large galleries
+- Lazy load off-screen images
+- Improve gallery scroll
+- Improve zip creation performance by fetching assets in parallel
+
 ## 1.15.3 (Upstream)
 
 - #187 Fix issue with album description not wrapping correctly
