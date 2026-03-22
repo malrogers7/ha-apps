@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.15.5
+Repository: alangrainger/immich-public-proxy · Tag: v1.15.5 · Commit: 6208f47 · Released by: alangrainger
+
+#198 #199 Fix breaking change with password protected links from Immich 1.6.x
+
 ## 1.15.4 (Upstream)
 
 - #196 Fix issue where original image was incorrectly downloaded inside "Download all' zip file
